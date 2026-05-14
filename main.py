@@ -66,7 +66,7 @@ def main():
         elif userinput == "help":
             console.print(
                 Align.center(
-                    Panel.fit(Text.from_ansi(help), title="Help", border_style="black")
+                    Panel.fit(Text.from_ansi(help), title="Help", border_style="bold blue")
                 )
             )
         
