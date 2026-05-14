@@ -18,6 +18,9 @@ RESET = Style.RESET_ALL
 with open("config/info.json", "r") as file:
     info = json.load(file)
 
+with open("packages/pkglist.json") as pkgfile:
+    pkglist = json.load(pkgfile)["packages"]
+
 print(f"[{BLUE}#{RESET}] - Boring developer stuff")
 
 print(info["pretty_version"])
@@ -56,6 +59,11 @@ def refresh():
 
 def main():
     refresh()
+    # console.print(
+    #     Align.center(
+    #         Panel.fit(Text.from_ansi(pkglist), title="packages", border_style="white")
+    #     )
+    # )
 
     while True:
         userinput = input(cmd).lower()
@@ -65,7 +73,7 @@ def main():
 
         elif userinput == "help":
             console.print(
-                Align.center(
+                Align.left(
                     Panel.fit(Text.from_ansi(help), title="Help", border_style="white")
                 )
             )
