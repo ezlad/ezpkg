@@ -44,10 +44,10 @@ help = """
 [clear] - Clears the terminal
 """
 
-def fullclear():
+def clear():
     os.system("clear")
 
-def clear():
+def refresh():
     os.system("clear")
     console.print(
         Align.center(banner)
@@ -55,10 +55,7 @@ def clear():
 
 
 def main():
-    fullclear()
-    console.print(
-        Align.center(banner)
-    )
+    refresh()
 
     while True:
         userinput = input(cmd).lower()
@@ -74,11 +71,14 @@ def main():
             )
         
         elif userinput == "exit":
-            fullclear()
+            clear()
             sys.exit()
 
         elif userinput == "clear":
-            clear()
+            refresh()
+        
+        elif userinput == "c":
+            refresh()
 
         else:
             print(f"[{RED}-{RESET}] - Unkown command: {userinput}")
